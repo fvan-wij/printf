@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:41:49 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/03 18:46:19 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/03 23:24:11 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,19 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
-int ft_isstring(char *s, int i)
-{
-    if(s[i] == '%' && s[i + 1] == 's')
-        return (1);
-    return (0);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-}
-
 int main(void)
 {
-    char s[] = "JOJOJOJOJOJO";
+    //char s[] = "JOJOJOJOJOJO";
     int DIY;
     int OG;
-   //unsigned int max_int = 2147483647;
+   	unsigned int max_int = 2147483647;
     
     printf("||ft_printf||\n");
-    DIY = ft_printf("%s", s);
+    DIY = ft_printf("%u", max_int);
     printf("\nreturn = %d\n", DIY);
     
     printf("\n||printf||\n");
-    OG = printf("%s", s);
+    OG = printf("%u", max_int);
     printf("\nreturn = %d\n\n", OG);
 
 }
@@ -92,8 +73,13 @@ int    ft_printf(const char *s, ...)
         }
         else if (ft_isprint(b[i]) || ft_iswhitespace(b[i]))
         {
-            ft_putchar_fd(va_arg(args, int), 1);
+            ft_putchar_fd(b[i], 1);
         }
+		else if (ft_ispercent(b, i))
+		{
+			ft_putchar_fd('%', 1);
+			i++;
+		}
         i++;
     }
     va_end(args);

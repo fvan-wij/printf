@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+         #
+#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 18:08:39 by fvan-wij          #+#    #+#              #
-#    Updated: 2022/11/03 18:03:43 by fvan-wij         ###   ########.fr        #
+#    Updated: 2022/11/03 22:59:21 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ SRC			:=	ft_strlen.c \
 			ft_isprint.c \
 			ft_iswhitespace.c \
 			ft_isui.c \
-			ft_put_ui_nbr_fd.c
+			ft_put_ui_nbr_fd.c \
+			ft_putstr_fd.c \
+			ft_isstring.c \
+			ft_ispercent.c
 
 #BONUS		:= 
 
@@ -48,8 +51,7 @@ Cyan		= "\033[0;36m"		# Cyan
 White		= "\033[0;37m"		# White
 
 # Reset
-Color_Off	= "\033[0m"			# Text Reset
-Text_Off	= "\033[0m"			# Text Style
+Text_Off	= "\033[0m"			# Text Reset
 
 #Text styles
 Bold		= "\033[1m"
@@ -63,22 +65,45 @@ endif
 
 $(NAME): 	$(OBJ)
 			@ar -rcs $(NAME) $(OBJ)
-			@echo $(Green) $(Bold) Completed ✅ $(Color_Off) $(Text_Off)
+			@echo $(Green) "$$DRCOOL" $(Text_Off)
+			@echo $(Green) $(Bold)Completed ✅ $(Text_Off)
+			
 
 all: 		$(NAME)
 
 %.o: 		%.c
-			@echo $(Blue) Building... $^ $(Color_Off)
+			@echo $(Blue) Building... $^ $(Text_Off)
 			@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean: 		
-			@echo $(Yellow) Cleaned all object files! $(Color_Off)
+			@echo $(Yellow) Cleaned all object files! $(Text_Off)
 			@$(RMV) $(OBJ)
 
 fclean: 	clean
-			@echo $(Yellow) Cleaned libft.a! $(Color_Off)
+			@echo $(Yellow) Cleaned libft.a! $(Text_Off)
 			@$(RMV) $(NAME)
 
 re: 		fclean $(NAME)
 
 .PHONY:		all clean fclean re bonus
+
+define DRCOOL
+ 
+                      ▄▄▄▄▄▄▄▄▄
+                  ▄▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▄
+           ▄   ▄▓▒▒▒█▓▓▀▀▀▒▒▒▒▒▀▀▓▓█▒▓
+      ▒▒▓▒▒▓▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓
+      ▒▓█▒▓▒▒▒▒▓▒▒▒▄▄▄██▄▄▒▒▒▒▒▒▄████▄▄▒▓▄
+      ▓▒▓▓█▓▀▀▀▓██████████████████████████
+      ▒▒▓██▀▒▒▒▓▒▀██████████████████████▒▓
+     ▐▒▒▓▌▓▓▄▓▒▒▒▒▀█████████▀▒█████████▒▒▓
+     ▒▐▓█▀ ▓▒▒▒▒▒▒▒▒▀▀███▀▀▒▒▒▒▒▀▀▀█▓▓▓▒▒▓
+           ▐▓▒▒▒▒▒▀▓▓▒▓▒▒▓▒▒▓▒▓▓▓▓▓▓▒▒▒▒▐      ▓▒▌
+            ▓▓▒▒▒▒▒▒▒▒▐▒▒▓▒▒▌░▐▒▒▓▒▒▒▒▒▒▀     ▐▌▒▌
+             ▐▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▓▒▒▓▓       ▓▓▓▓▄▄
+               ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▀       ▓▓▓▓▒▒▒▒
+                 ▀▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▀          ▓▓▓▓▓▒▒▒▒
+                       ▀▀▀▀▀▀▀                 █▓▀▒▓▒ 
+
+endef
+export DRCOOL
