@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:41:49 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/03 23:24:11 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:53:18 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@ int main(void)
     //char s[] = "JOJOJOJOJOJO";
     int DIY;
     int OG;
-   	unsigned int max_int = 2147483647;
+   	int hex = 2147483647;
+    
+    char s[] = "PRINT MIJN ADDRESS G";
     
     printf("||ft_printf||\n");
-    DIY = ft_printf("%u", max_int);
+    DIY = ft_printf("%x", s);
     printf("\nreturn = %d\n", DIY);
     
     printf("\n||printf||\n");
-    OG = printf("%u", max_int);
+    OG = printf("%x", s);
     printf("\nreturn = %d\n\n", OG);
 
+    //ft_puthex(254);
 }
 
 int    ft_printf(const char *s, ...)
@@ -45,6 +48,7 @@ int    ft_printf(const char *s, ...)
     va_start(args, s);
     while (b[i])
     {
+        
         if (ft_isdecimal(b, i))
         {
             ft_putnbr_fd(va_arg(args, int), 1);
@@ -69,6 +73,11 @@ int    ft_printf(const char *s, ...)
             str = va_arg(args, char *);
             ft_putstr_fd(str, 1);
             spec_count++;
+            i++;
+        }
+        else if (ft_ishex(b, i))
+        {
+            ft_puthex(va_arg(args, int));
             i++;
         }
         else if (ft_isprint(b[i]) || ft_iswhitespace(b[i]))

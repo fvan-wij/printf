@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
+#    By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 18:08:39 by fvan-wij          #+#    #+#              #
-#    Updated: 2022/11/03 22:59:21 by fvan-wij         ###   ########.fr        #
+#    Updated: 2022/11/04 12:10:09 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC			:=	ft_strlen.c \
 			ft_put_ui_nbr_fd.c \
 			ft_putstr_fd.c \
 			ft_isstring.c \
-			ft_ispercent.c
+			ft_ispercent.c \
+			ft_ishex.c \
+			ft_puthex.c
 
 #BONUS		:= 
 

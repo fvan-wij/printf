@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:46:37 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/03 22:59:53 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:02:08 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	ft_put_ui_nbr_fd(unsigned int n, int fd);
 int		ft_isstring(char *s, int i);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_ispercent(char *s, int i);
+void    ft_puthex(int n);
+int     ft_ishex(char *s, int i);
 #endif
