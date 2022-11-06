@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:28:20 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/06 23:51:21 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/07 00:07:24 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	ft_putnbr(int n)
 	}
 	if (n >= 10)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		j += ft_putnbr(n / 10);
+		j += ft_putnbr(n % 10);
 	}
+	return (j);
 }
 

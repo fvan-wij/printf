@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:41:49 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/06 23:34:06 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/07 00:22:47 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,28 @@
 int    ft_printf(const char *s, ...)
 {
     int 	i;
-    int		n;
+    int		n_of_chars;
 	va_list args;
     
     i = 0;
-	n = 0;
+	n_of_chars = 0;
     va_start(args, s);
 	
     while (s[i])
     {
         if (s[i] == '%')
 		{
-			n += ft_printspecifier(s[i + 1], args);
+			n_of_chars += ft_printspecifier(s[i + 1], args);
 			i++;
 		}
 		else
 		{
 			write(1, &s[i], 1);
-			n++;
+			n_of_chars++;
 		}
 		i++;	
     }
     va_end(args);
-    return (n);
+    return (n_of_chars);
 }
 

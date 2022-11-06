@@ -38,5 +38,5 @@ int    ft_put_cap_hex(int n)
         write(1, &hex[j], 1);
         j--;
     }
-	return (j);
+	return (i);
 }

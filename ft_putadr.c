@@ -22,7 +22,7 @@ int    ft_putadr(unsigned long n)
     i = 0;
 	j = 0;
     remainder = 0;
-	write(1, "0x", 2);
+	j += write(1, "0x", 2);
     while (n != 0)
     {
         remainder = n % 16;
@@ -33,7 +33,7 @@ int    ft_putadr(unsigned long n)
         i++;
         n = n / 16;
     }
-	j = i;
+	j += i;
     while (i != 0)
     {
         write(1, &hex[i - 1], 1);

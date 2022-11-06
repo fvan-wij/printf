@@ -15,40 +15,49 @@
 
 int main(void)
 {
-	// // %s
+	/* %s */
     char print_string[] = "JOJOJOJOJOJO";
 
-	// // %p
-    // char print_address[] = "PRINT MIJN ADDRESS G";
+	/* %p */
+    char print_address[] = "PRINT MIJN ADDRESS G";
 
-	// %d || %i
-   	//int decimal = 2147483647;
+	/* %d || %i */
+   	int decimal = 2147483647;
 
-	// // %c
-	// char c = 'f';
+	/* %c */
+	char c = 'f';
 
-	// // %u
-	// unsigned int ui = 4294967295;
+	/* %u */
+	unsigned int ui = 4294967295;
 
-	// // %x
-	// int	hex = 2525;
+	/* %x */
+	int	hex = 2525;
 
-	// // %X
-	// int	HEX = 2525;
+	/* %X */
+	int	HEX = 2525;
 
-	// Return values 
+	/* Return values */
     int DIY;
     int OG;
     
     /* DIY VS OG with loads of variables */
     printf("||ft_printf||\n");
-    DIY = ft_printf("\t%s", print_string);
+    DIY = ft_printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
     printf("\nreturn = %d\n", DIY);
     
     printf("\n||printf||\n");
-    OG = printf("\t%s", print_string);
+    OG = printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
     printf("\nreturn = %d\n\n", OG);
 	
+    // printf("||ft_printf||\n");
+    // DIY = ft_printf("%p\n", print_string);
+    // printf("\nreturn = %d\n", DIY);
+    
+    // printf("\n||printf||\n");
+    // OG = printf("%p\n", print_string);
+    // printf("\nreturn = %d\n\n", OG);
+
+
 	// //DIY VS OG
 	// printf("||ft_printf||\n");
     // DIY = ft_printf("sdfadf%%%%");

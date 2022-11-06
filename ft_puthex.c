@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:21:13 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/06 23:26:06 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/07 00:14:35 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	ft_puthex(int n)
         write(1, &hex[j], 1);
         j--;
     }
-	return (j);
+	return (i);
 }
 
