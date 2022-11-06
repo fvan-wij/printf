@@ -1,20 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 17:24:28 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/03 23:17:02 by fvan-wij         ###   ########.fr       */
+/*   Created: 2022/11/03 17:28:20 by fvan-wij          #+#    #+#             */
+/*   Updated: 2022/11/06 23:51:21 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_isprint(int c)
+int	ft_putnbr(int n)
 {
-	if ((c >= 32 && c <= 126) && c != 37)
+	char	convert;
+	int		j;
+
+	j = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
 		return (1);
-	return (0);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n < 10)
+	{
+		convert = '0' + n;
+		j += write(1, &convert, 1);
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 }
+

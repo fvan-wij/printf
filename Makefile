@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+         #
+#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 18:08:39 by fvan-wij          #+#    #+#              #
-#    Updated: 2022/11/04 12:10:09 by fvan-wij         ###   ########.fr        #
+#    Updated: 2022/11/06 23:29:34 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,16 @@ NAME		:=	libftprintf.a
 
 HEADER		:=	libftprintf.h
 
-SRC			:=	ft_strlen.c \
-			ft_printf.c \
-			ft_putnbr_fd.c \
-			ft_isdecimal.c \
-			ft_ischar.c \
-			ft_putchar_fd.c \
-			ft_isprint.c \
-			ft_iswhitespace.c \
-			ft_isui.c \
-			ft_put_ui_nbr_fd.c \
-			ft_putstr_fd.c \
-			ft_isstring.c \
-			ft_ispercent.c \
-			ft_ishex.c \
-			ft_puthex.c
+SRC			:=	ft_printf.c \
+			ft_putnbr.c \
+			ft_putchar.c \
+			ft_put_ui_nbr.c \
+			ft_putstr.c \
+			ft_puthex.c \
+			ft_putadr.c \
+			ft_printspecifier.c \
+			ft_put_cap_hex.c \
+			main.c
 
 #BONUS		:= 
 

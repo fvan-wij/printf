@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ischar.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 17:25:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/03 17:25:19 by fvan-wij         ###   ########.fr       */
+/*   Created: 2022/11/03 17:24:48 by fvan-wij          #+#    #+#             */
+/*   Updated: 2022/11/06 23:25:38 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_ischar(char *s, int i)
+int	ft_putchar(char c)
 {
-	if (s[i] == '%' && s[i + 1] == 'c')
-		return (1);
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }

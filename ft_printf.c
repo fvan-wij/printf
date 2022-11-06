@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:41:49 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/04 14:53:18 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/06 23:34:06 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,84 +14,31 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
-int main(void)
-{
-    //char s[] = "JOJOJOJOJOJO";
-    int DIY;
-    int OG;
-   	int hex = 2147483647;
-    
-    char s[] = "PRINT MIJN ADDRESS G";
-    
-    printf("||ft_printf||\n");
-    DIY = ft_printf("%x", s);
-    printf("\nreturn = %d\n", DIY);
-    
-    printf("\n||printf||\n");
-    OG = printf("%x", s);
-    printf("\nreturn = %d\n\n", OG);
-
-    //ft_puthex(254);
-}
-
 int    ft_printf(const char *s, ...)
 {
-    int i;
-    int spec_count;
-    char *b;
-    va_list args;
-    char *str;
+    int 	i;
+    int		n;
+	va_list args;
     
-    b = (char *) s;
     i = 0;
-    spec_count = 0;
+	n = 0;
     va_start(args, s);
-    while (b[i])
+	
+    while (s[i])
     {
-        
-        if (ft_isdecimal(b, i))
-        {
-            ft_putnbr_fd(va_arg(args, int), 1);
-            spec_count++;
-            i++;
-        }
-        else if(ft_isui(b, i))
-        {
-            unsigned int n = va_arg(args, int);
-            ft_put_ui_nbr_fd(n, 1);
-            spec_count++;
-            i++;
-        }
-        else if (ft_ischar(b, i))
-        {
-            ft_putchar_fd(va_arg(args, int), 1);
-            spec_count++;
-            i++;
-        }
-        else if (ft_isstring(b, i))
-        {
-            str = va_arg(args, char *);
-            ft_putstr_fd(str, 1);
-            spec_count++;
-            i++;
-        }
-        else if (ft_ishex(b, i))
-        {
-            ft_puthex(va_arg(args, int));
-            i++;
-        }
-        else if (ft_isprint(b[i]) || ft_iswhitespace(b[i]))
-        {
-            ft_putchar_fd(b[i], 1);
-        }
-		else if (ft_ispercent(b, i))
+        if (s[i] == '%')
 		{
-			ft_putchar_fd('%', 1);
+			n += ft_printspecifier(s[i + 1], args);
 			i++;
 		}
-        i++;
+		else
+		{
+			write(1, &s[i], 1);
+			n++;
+		}
+		i++;	
     }
     va_end(args);
-    return (i);
+    return (n);
 }
 

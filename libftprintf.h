@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:46:37 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/04 12:02:08 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/06 23:15:33 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,15 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-size_t	ft_strlen(const char *s);
 int     ft_printf(const char *s, ...);
-void	ft_putnbr_fd(int n, int fd);
-int     ft_isdecimal(char *s, int i);
-int	    ft_ischar(char *s, int i);
-void	ft_putchar_fd(char c, int fd);
-int	    ft_isprint(int c);
-int     ft_iswhitespace(int c);
-int     ft_isui(char *s, int i);
-void	ft_put_ui_nbr_fd(unsigned int n, int fd);
-int		ft_isstring(char *s, int i);
-void	ft_putstr_fd(char *s, int fd);
-int		ft_ispercent(char *s, int i);
-void    ft_puthex(int n);
-int     ft_ishex(char *s, int i);
+int		ft_putnbr(int n);
+int		ft_putchar(char c);
+int		ft_put_ui_nbr(unsigned int n);
+int		ft_putstr(char *s);
+int	    ft_puthex(int n);
+int		ft_put_cap_hex(int n);
+int		ft_putadr(unsigned long n);
+int		ft_printspecifier(int specifier, va_list args);
+int		main(void);
+
 #endif

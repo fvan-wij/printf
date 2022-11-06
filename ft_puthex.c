@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:21:13 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/04 14:01:14 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/06 23:26:06 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void    ft_puthex(int n)
+int	ft_puthex(int n)
 {
-    char hex[9];
+    char hex[30];
     int remainder;
     int i;
     int j;
@@ -38,5 +38,6 @@ void    ft_puthex(int n)
         write(1, &hex[j], 1);
         j--;
     }
+	return (j);
 }
 
