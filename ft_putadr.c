@@ -12,32 +12,41 @@
 
 #include "libftprintf.h"
 
-int    ft_putadr(unsigned long n)
+static int	convert_hex(char *hex, unsigned long n)
 {
-    char hex[30];
-    unsigned long remainder;
-    unsigned long i;
-    unsigned long j;
+	unsigned long	remainder;
+	unsigned long	i;
 
-    i = 0;
+	remainder = 0;
+	i = 0;
+	while (n != 0)
+	{
+		remainder = n % 16;
+		if (remainder < 10)
+			hex[i] = 48 + remainder;
+		else if (remainder >= 10)
+			hex[i] = 87 + remainder;
+		i++;
+		n = n / 16;
+	}
+	return (i);
+}
+
+int	ft_putadr(unsigned long n)
+{
+	char			hex[30];
+	unsigned long	j;
+	unsigned long	i;
+
+	i = 0;
 	j = 0;
-    remainder = 0;
 	j += write(1, "0x", 2);
-    while (n != 0)
-    {
-        remainder = n % 16;
-        if (remainder < 10)
-            hex[i] = 48 + remainder;
-        else if (remainder >= 10)
-            hex[i] = 87 + remainder;
-        i++;
-        n = n / 16;
-    }
+	i += convert_hex(hex, n);
 	j += i;
-    while (i != 0)
-    {
-        write(1, &hex[i - 1], 1);
-        i--;
-    }
+	while (i != 0)
+	{
+		write(1, &hex[i - 1], 1);
+		i--;
+	}
 	return (j);
 }

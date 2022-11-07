@@ -59,22 +59,5 @@ int main(void)
 	printf("\nReturn ft:%d\n", ft_printf("ft: %X", HEX));
 	printf("\nReturn lb:%d\n\n", printf("lb: %X", HEX));
 
-    /* DIY VS OG with loads of variables */
-    // printf("||ft_printf||\n");
-    // DIY = ft_printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
-    // printf("\nreturn = %d\n", DIY);
-    
-    // printf("\n||printf||\n");
-    // OG = printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
-    // printf("\nreturn = %d\n\n", OG);
-	
-    // printf("||ft_printf||\n");
-    // DIY = ft_printf("%p\n", print_string);
-    // printf("\nreturn = %d\n", DIY);
-    
-    // printf("\n||printf||\n");
-    // OG = printf("%p\n", print_string);
-    // printf("\nreturn = %d\n\n", OG);
-
 	return (0);
 }

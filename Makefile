@@ -22,8 +22,7 @@ SRC			:=	ft_printf.c \
 			ft_puthex.c \
 			ft_putadr.c \
 			ft_printspecifier.c \
-			ft_put_cap_hex.c \
-			main.c
+			ft_put_cap_hex.c
 
 #BONUS		:= 
 

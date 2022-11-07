@@ -40,4 +40,3 @@ int	ft_putnbr(int n)
 	}
 	return (j);
 }
-
