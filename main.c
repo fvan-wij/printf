@@ -15,39 +15,58 @@
 
 int main(void)
 {
-	/* %s */
+	/*Test with %s */
     char print_string[] = "JOJOJOJOJOJO";
+	printf("||Test with string||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %s", print_string));
+	printf("\nReturn lb:%d\n\n", printf("lb: %s", print_string));
 
-	/* %p */
-    char print_address[] = "PRINT MIJN ADDRESS G";
+	/*Test with %p */
+	printf("||Test with address||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %p", print_string));
+	printf("\nReturn lb:%d\n\n", printf("lb: %p", print_string));
 
-	/* %d || %i */
+	/*Test with %d || %i */
    	int decimal = 2147483647;
+	printf("||Test with decimal||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %d", decimal));
+	printf("\nReturn lb:%d\n\n", printf("lb: %d", decimal));
+	printf("||Test with intgeger||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %i", decimal));
+	printf("\nReturn lb:%d\n\n", printf("lb: %i", decimal));
 
-	/* %c */
+	/*Test with %c */
 	char c = 'f';
+	printf("||Test with character||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %c", c));
+	printf("\nReturn lb:%d\n\n", printf("lb: %c", c));
 
-	/* %u */
+	/*Test with %u */
 	unsigned int ui = 4294967295;
+	printf("||Test with unsigned integer||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %u", ui));
+	printf("\nReturn lb:%d\n\n", printf("lb: %u", ui));
 
-	/* %x */
+	/*Test with %x */
 	int	hex = 2525;
+	printf("||Test with hex||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %x", hex));
+	printf("\nReturn lb:%d\n\n", printf("lb: %x", hex));
 
-	/* %X */
+	/*Test with %X */
 	int	HEX = 2525;
+	printf("||Test with HEX||\n\n");
+	printf("\nReturn ft:%d\n", ft_printf("ft: %X", HEX));
+	printf("\nReturn lb:%d\n\n", printf("lb: %X", HEX));
 
-	/* Return values */
-    int DIY;
-    int OG;
-    
     /* DIY VS OG with loads of variables */
-    printf("||ft_printf||\n");
-    DIY = ft_printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
-    printf("\nreturn = %d\n", DIY);
+    // printf("||ft_printf||\n");
+    // DIY = ft_printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
+    // printf("\nreturn = %d\n", DIY);
     
-    printf("\n||printf||\n");
-    OG = printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
-    printf("\nreturn = %d\n\n", OG);
+    // printf("\n||printf||\n");
+    // OG = printf("%s\n%p\n%d\n%c\n%u\n%x\n%X\n%%%", print_string, print_address, decimal, c, ui, hex, HEX);
+    // printf("\nreturn = %d\n\n", OG);
 	
     // printf("||ft_printf||\n");
     // DIY = ft_printf("%p\n", print_string);
@@ -55,16 +74,6 @@ int main(void)
     
     // printf("\n||printf||\n");
     // OG = printf("%p\n", print_string);
-    // printf("\nreturn = %d\n\n", OG);
-
-
-	// //DIY VS OG
-	// printf("||ft_printf||\n");
-    // DIY = ft_printf("sdfadf%%%%");
-    // printf("\nreturn = %d\n", DIY);
-    
-    // printf("\n||printf||\n");
-    // OG = printf("sdfadf%%%%");
     // printf("\nreturn = %d\n\n", OG);
 
 	return (0);
