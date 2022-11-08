@@ -6,13 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:41:49 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/07 18:16:47 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:31:23 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "libftprintf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	ft_printf(const char *s, ...)
 {
@@ -27,6 +25,8 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
+			if (s[i + 1] == '\0')
+				return (n_of_chars);
 			n_of_chars += ft_printspecifier(s[i + 1], args);
 			i++;
 		}

@@ -6,16 +6,16 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:21:13 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/08 11:52:49 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:12:42 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static int	convert_hex(char *hex, int n)
+static int	convert_hex(char *hex, unsigned int n)
 {
-	int	remainder;
-	int	i;
+	unsigned int	remainder;
+	int				i;
 
 	remainder = 0;
 	i = 0;
@@ -32,7 +32,7 @@ static int	convert_hex(char *hex, int n)
 	return (i);
 }
 
-int	ft_puthex(int n)
+int	ft_puthex(unsigned int n)
 {
 	char	hex[30];
 	int		i;

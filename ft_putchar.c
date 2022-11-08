@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:24:48 by fvan-wij          #+#    #+#             */
-/*   Updated: 2022/11/06 23:25:38 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:12:45 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static int	convert_cap_hex(char *hex, int n)
+static int	convert_cap_hex(char *hex, unsigned int n)
 {
-	int	remainder;
-	int	i;
+	unsigned int	remainder;
+	int				i;
 
 	remainder = 0;
 	i = 0;
@@ -32,7 +32,7 @@ static int	convert_cap_hex(char *hex, int n)
 	return (i);
 }
 
-int	ft_put_cap_hex(int n)
+int	ft_put_cap_hex(unsigned int n)
 {
 	char	hex[30];
 	int		i;

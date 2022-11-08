@@ -6,13 +6,13 @@
 #    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 18:08:39 by fvan-wij          #+#    #+#              #
-#    Updated: 2022/11/07 22:58:49 by fvan-wij         ###   ########.fr        #
+#    Updated: 2022/11/08 16:37:57 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	libftprintf.a
 
-HEADER		:=	libftprintf.h
+HEADER		:=	ft_printf.h
 
 SRC			:=	ft_printf.c \
 			ft_putnbr.c \
@@ -23,8 +23,6 @@ SRC			:=	ft_printf.c \
 			ft_putadr.c \
 			ft_printspecifier.c \
 			ft_put_cap_hex.c
-
-#BONUS		:= 
 
 OBJ 		:= $(SRC:.c=.o)
 
@@ -61,22 +59,24 @@ endif
 
 $(NAME): 	$(OBJ)
 			@ar -rcs $(NAME) $(OBJ)
+			@echo $(Yellow)Norminette... $(Blue)
+			@Norminette $(SRC)
+			@echo $(Text_Off)
 			@echo $(Green) "$$DRCOOL" $(Text_Off)
 			@echo $(Green) $(Bold)Completed ✅ $(Text_Off)
-			
 
 all: 		$(NAME)
 
 %.o: 		%.c
-			@echo $(Blue) Building... $^ $(Text_Off)
+			@echo $(Blue)Building... $^ $(Text_Off)
 			@$(CC) $(CFLAGS) -c -o $@ $^
 
 clean: 		
-			@echo $(Yellow) Cleaned all object files! $(Text_Off)
+			@echo $(Yellow)Cleaned all object files! $(Text_Off)
 			@$(RMV) $(OBJ)
 
 fclean: 	clean
-			@echo $(Yellow) Cleaned libft.a! $(Text_Off)
+			@echo $(Yellow)Cleaned libft.a! $(Text_Off)
 			@$(RMV) $(NAME)
 
 re: 		fclean $(NAME)
@@ -84,22 +84,20 @@ re: 		fclean $(NAME)
 .PHONY:		all clean fclean re bonus
 
 define DRCOOL
- 
-                      ▄▄▄▄▄▄▄▄▄
-                  ▄▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▄
-           ▄   ▄▓▒▒▒█▓▓▀▀▀▒▒▒▒▒▀▀▓▓█▒▓
-      ▒▒▓▒▒▓▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓
-      ▒▓█▒▓▒▒▒▒▓▒▒▒▄▄▄██▄▄▒▒▒▒▒▒▄████▄▄▒▓▄
-      ▓▒▓▓█▓▀▀▀▓██████████████████████████
-      ▒▒▓██▀▒▒▒▓▒▀██████████████████████▒▓
-     ▐▒▒▓▌▓▓▄▓▒▒▒▒▀█████████▀▒█████████▒▒▓
-     ▒▐▓█▀ ▓▒▒▒▒▒▒▒▒▀▀███▀▀▒▒▒▒▒▀▀▀█▓▓▓▒▒▓
-           ▐▓▒▒▒▒▒▀▓▓▒▓▒▒▓▒▒▓▒▓▓▓▓▓▓▒▒▒▒▐      ▓▒▌
-            ▓▓▒▒▒▒▒▒▒▒▐▒▒▓▒▒▌░▐▒▒▓▒▒▒▒▒▒▀     ▐▌▒▌
-             ▐▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▓▒▒▓▓       ▓▓▓▓▄▄
-               ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▀       ▓▓▓▓▒▒▒▒
-                 ▀▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▀          ▓▓▓▓▓▒▒▒▒
-                       ▀▀▀▀▀▀▀                 █▓▀▒▓▒ 
-
+                  ▄▄▄▄▄▄▄▄▄
+              ▄▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▄
+       ▄   ▄▓▒▒▒█▓▓▀▀▀▒▒▒▒▒▀▀▓▓█▒▓
+  ▒▒▓▒▒▓▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▓
+  ▒▓█▒▓▒▒▒▒▓▒▒▒▄▄▄██▄▄▒▒▒▒▒▒▄████▄▄▒▓▄
+  ▓▒▓▓█▓▀▀▀▓██████████████████████████
+  ▒▒▓██▀▒▒▒▓▒▀██████████████████████▒▓
+ ▐▒▒▓▌▓▓▄▓▒▒▒▒▀█████████▀▒█████████▒▒▓
+ ▒▐▓█▀ ▓▒▒▒▒▒▒▒▒▀▀███▀▀▒▒▒▒▒▀▀▀█▓▓▓▒▒▓
+       ▐▓▒▒▒▒▒▀▓▓▒▓▒▒▓▒▒▓▒▓▓▓▓▓▓▒▒▒▒▐      ▓▒▌
+        ▓▓▒▒▒▒▒▒▒▒▐▒▒▓▒▒▌░▐▒▒▓▒▒▒▒▒▒▀     ▐▌▒▌
+         ▐▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▓▒▒▓▓       ▓▓▓▓▄▄
+           ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▀       ▓▓▓▓▒▒▒▒
+             ▀▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▀          ▓▓▓▓▓▒▒▒▒
+                   ▀▀▀▀▀▀▀                 █▓▀▒▓▒  
 endef
 export DRCOOL

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	convert_hex(char *hex, unsigned long n)
 {
@@ -42,7 +42,7 @@ int	ft_putadr(unsigned long n)
 	j = 0;
 	if (!n)
 	{
-		j += write(1, "(nil)", 5);
+		j += write(1, "0x0", 3);
 		return (j);
 	}
 	j += write(1, "0x", 2);

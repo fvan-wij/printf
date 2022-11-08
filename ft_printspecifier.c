@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printspecifier(int specifier, va_list args)
 {
@@ -28,10 +28,12 @@ int	ft_printspecifier(int specifier, va_list args)
 	else if (specifier == 'p')
 		n += ft_putadr(va_arg(args, unsigned long));
 	else if (specifier == 'x')
-		n += ft_puthex(va_arg(args, int));
+		n += ft_puthex((unsigned int)va_arg(args, int));
 	else if (specifier == 'X')
 		n += ft_put_cap_hex(va_arg(args, int));
 	else if (specifier == '%')
 		n += write(1, "%", 1);
+	else if (specifier == '\0')
+		return (n);
 	return (n);
 }
