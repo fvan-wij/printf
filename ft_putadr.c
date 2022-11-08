@@ -40,6 +40,11 @@ int	ft_putadr(unsigned long n)
 
 	i = 0;
 	j = 0;
+	if (!n)
+	{
+		j += write(1, "(nil)", 5);
+		return (j);
+	}
 	j += write(1, "0x", 2);
 	i += convert_hex(hex, n);
 	j += i;

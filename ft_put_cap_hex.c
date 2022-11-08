@@ -12,16 +12,13 @@
 
 #include "libftprintf.h"
 
-int	ft_put_cap_hex(int n)
+static int	convert_cap_hex(char *hex, int n)
 {
-	char	hex[30];
-	int		remainder;
-	int		i;
-	int		j;
+	int	remainder;
+	int	i;
 
-	i = 0;
-	j = 0;
 	remainder = 0;
+	i = 0;
 	while (n != 0)
 	{
 		remainder = n % 16;
@@ -32,7 +29,24 @@ int	ft_put_cap_hex(int n)
 		i++;
 		n = n / 16;
 	}
-	j = i - 1;
+	return (i);
+}
+
+int	ft_put_cap_hex(int n)
+{
+	char	hex[30];
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (!n)
+	{
+		i += write(1, "0", 1);
+		return (i);
+	}
+	i += convert_cap_hex(hex, n);
+	j += i - 1;
 	while (0 <= j)
 	{
 		write(1, &hex[j], 1);
