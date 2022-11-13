@@ -35,5 +35,7 @@ int	ft_printspecifier(int specifier, va_list args)
 		n += write(1, "%", 1);
 	else if (specifier == '\0')
 		return (n);
+	// if (n == -1)
+	// 	return (-1); //Evaluate if this is correct behaviour
 	return (n);
 }

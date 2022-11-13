@@ -26,15 +26,12 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			if (s[i + 1] == '\0')
-				return (n_of_chars);
+				return (-1); //Evaluate if this is correct bevaviour
 			n_of_chars += ft_printspecifier(s[i + 1], args);
 			i++;
 		}
 		else
-		{
-			write(1, &s[i], 1);
-			n_of_chars++;
-		}
+			n_of_chars += write(1, &s[i], 1);
 		i++;
 	}
 	va_end(args);

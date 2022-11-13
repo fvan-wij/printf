@@ -48,4 +48,7 @@ fclean: 	clean
 
 re: 		fclean $(NAME)
 
+test:		fclean $(NAME)
+			$(CC) $(CFLAGS) main.c $(NAME)
+
 .PHONY:		all clean fclean re
